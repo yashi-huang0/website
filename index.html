@@ -144,6 +144,8 @@
   /* Headshot placeholder */
   .headshot {
     aspect-ratio: 1 / 1;
+    max-width: 340px;
+    margin-left: auto;
     background: linear-gradient(135deg, #D9EBE7 0%, #C4DDD7 50%, #A8C9C2 100%);
     border: 1px solid var(--line-2);
     position: relative;
@@ -151,8 +153,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: grayscale(0.15);
-  }
+}
   .headshot::before {
     content: "";
     position: absolute; inset: 0;
@@ -620,7 +621,7 @@
         <picture>
           <source srcset="headshot.webp" type="image/webp">
           <img src="headshot.jpg" alt="Yashi Huang"
-             style="width:100%; height:100%; object-fit:cover; object-position:center top;" />
+             style="width:100%; height:100%; object-fit:cover;" />
         </picture>
       </div>
     </div>
