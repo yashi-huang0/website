@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yashi Huang — Operations Management × Applied Machine Learning</title>
+<title>Yashi Huang — Operations Research × Applied Machine Learning</title>
 <meta name="description" content="PhD candidate in Operations Management at the University of Rochester. Building production ML systems for healthcare operations and scheduling." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -141,51 +141,69 @@
   .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
   .btn.ghost:hover { border-color: var(--ink); background: var(--surface); }
 
-  /* Headshot placeholder */
-  .headshot {
-    aspect-ratio: 1 / 1;
-    max-width: 340px;
+  /* HERO ASIDE — Photo + Dossier */
+  .hero-aside {
+    max-width: 380px;
     margin-left: auto;
-    background: linear-gradient(135deg, #D9EBE7 0%, #C4DDD7 50%, #A8C9C2 100%);
-    border: 1px solid var(--line-2);
-    position: relative;
-    overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  .headshot::before {
-    content: "";
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
-    opacity: 0.6;
+    flex-direction: column;
+    gap: 20px;
   }
-  .headshot .monogram {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(110px, 14vw, 180px);
-    color: var(--ink);
-    opacity: 0.85;
-    line-height: 1;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.04em;
+  .portrait {
+    margin: 0;
+    border: 1px solid var(--line-2);
+    background: var(--surface);
+    overflow: hidden;
   }
-  .headshot .caption {
-    position: absolute;
-    bottom: 18px;
-    left: 20px;
-    right: 20px;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-2);
+  .portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .portrait figcaption {
     display: flex;
     justify-content: space-between;
-    opacity: 0.75;
-    z-index: 1;
+    padding: 11px 14px 10px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dossier {
+    border: 1px solid var(--line-2);
+    background: var(--surface);
+  }
+  .dossier-row {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 14px;
+    padding: 13px 16px;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .dossier-row:first-child { border-top: none; }
+  .dossier-row .label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dossier-row .value {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .dossier-row .value em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
   }
 
   .hero-status {
@@ -376,36 +394,69 @@
   .project-links .arrow { opacity: 0.6; }
 
   /* SKILLS */
-  .skills { background: var(--bg-alt); padding: 90px 0; text-align: center; }
-  .skills h2 {
+  .skills {
+    background: var(--bg-alt);
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 80px;
+  }
+  .skills-label h2 {
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .skills-label h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .skills-label p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 28ch;
+  }
+  .skills-list { display: flex; flex-direction: column; }
+  .skill-cat {
+    padding: 24px 0;
+    border-top: 1px solid var(--line-2);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    align-items: baseline;
+  }
+  .skill-cat:first-child { border-top: none; padding-top: 0; }
+  .skill-cat .cat-index {
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.22em;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    margin-bottom: 48px;
+    color: var(--muted);
+    padding-top: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .skill-cat .cat-index .num {
     font-weight: 500;
+    color: var(--accent);
   }
-  .skills-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-  .skill {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: 24px 12px 20px;
-    transition: all 0.25s;
-  }
-  .skill:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.15);
-  }
-  .skill-icon {
-    width: 28px; height: 28px;
-    margin: 0 auto 14px;
+  .skill-cat .cat-skills {
+    font-size: 15.5px;
+    line-height: 1.75;
     color: var(--ink);
-    stroke-width: 1.5;
-    display: block;
+    letter-spacing: -0.005em;
   }
-  .skill:hover .skill-icon { color: var(--accent); }
-  .skill-label { font-size: 12.5px; font-weight: 500; letter-spacing: 0.01em; }
+  .skill-cat .cat-skills strong {
+    font-weight: 600;
+  }
 
   /* EXPERIENCE */
   .experience { padding: 90px 0; border-bottom: 1px solid var(--line); }
@@ -563,7 +614,9 @@
     footer { padding: 22px 24px; flex-direction: column; gap: 14px; }
     .hero-grid, .intro-grid, .exp-grid, .talks-grid { grid-template-columns: 1fr; gap: 40px; }
     .project-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-aside { max-width: 100%; margin-left: 0; }
+    .skills-layout { grid-template-columns: 1fr; gap: 32px; }
+    .skill-cat { grid-template-columns: 1fr; gap: 6px; }
     .talk { grid-template-columns: 1fr; gap: 6px; }
     .talk .venue { text-align: left; }
     .exp-entry { grid-template-columns: 1fr; gap: 8px; }
@@ -573,7 +626,6 @@
   }
   @media (max-width: 560px) {
     nav ul { display: none; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -617,13 +669,38 @@
           <a href="Yashi_Huang_Resume.pdf" class="btn ghost">Download Resume</a>
         </div>
       </div>
-      <div class="headshot reveal d3" style="background: none;">
-        <picture>
-          <source srcset="headshot.webp" type="image/webp">
-          <img src="headshot.jpg" alt="Yashi Huang"
-             style="width:100%; height:100%; object-fit:cover;" />
-        </picture>
-      </div>
+
+      <aside class="hero-aside reveal d3">
+        <figure class="portrait">
+          <picture>
+            <source srcset="headshot.webp" type="image/webp">
+            <img src="headshot.jpg" alt="Yashi Huang" />
+          </picture>
+          <figcaption>
+            <span>Yashi Huang</span>
+            <span>Rochester · 2026</span>
+          </figcaption>
+        </figure>
+
+        <div class="dossier">
+          <div class="dossier-row">
+            <span class="label">Now</span>
+            <span class="value">PhD Candidate · <em>Simon</em>, U. Rochester</span>
+          </div>
+          <div class="dossier-row">
+            <span class="label">Recently</span>
+            <span class="value">Data Scientist · Dana-Farber</span>
+          </div>
+          <div class="dossier-row">
+            <span class="label">Prior</span>
+            <span class="value">M.S. Operations Research · Columbia</span>
+          </div>
+          <div class="dossier-row">
+            <span class="label">Open to</span>
+            <span class="value">US relocation · Hybrid · Remote</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -635,8 +712,8 @@
       </div>
       <div class="intro-body">
         <p>
-          My PhD is in <em>Operations Management</em>, and I've spent my time on problems
-          industry cares about directly: how do we predict future?
+          My PhD is in <em>Operations Management</em>, but I've spent it on problems
+          industry cares about directly: how do we forecast demand in a cancer center,
           give patients honest wait-time intervals, and schedule appointments under
           no-shows, walk-ins, and stochastic service times?
         </p>
@@ -666,7 +743,7 @@
 
     <div class="project-grid">
 
-      <!-- PROJECT 1 (was P2) -->
+      <!-- PROJECT 1 -->
       <article class="project-card">
         <div class="project-viz">
           <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -712,17 +789,14 @@
             <span class="tag">PyTorch</span>
           </div>
           <div class="project-links">
-            <!-- TODO: replace href="#" with your slides URL -->
             <a href="#">Slides <span class="arrow">↗</span></a>
-            <!-- TODO: replace href="#" with your Google Scholar paper link -->
             <a href="#">Paper <span class="arrow">↗</span></a>
-            <!-- TODO (future): replace href="#" with your GitHub repo URL -->
             <a href="#" class="pending">GitHub <span class="arrow">↗</span></a>
           </div>
         </div>
       </article>
 
-      <!-- PROJECT 2 (was P1) -->
+      <!-- PROJECT 2 -->
       <article class="project-card">
         <div class="project-viz">
           <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -836,71 +910,44 @@
   <!-- SKILLS -->
   <section class="skills" id="skills">
     <div class="shell">
-      <h2>Key Technical Proficiencies</h2>
-      <div class="skills-grid">
+      <div class="skills-layout">
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C7 2 7 5 7 5v3h5v1H4s-2 0-2 4 2 4 2 4h3v-2.5C7 12 9 11 11 11h5s3 0 3-3V5s0-3-3-3zm-2 2a1 1 0 110 2 1 1 0 010-2z"/>
-            <path d="M12 22c5 0 5-3 5-3v-3h-5v-1h8s2 0 2-4-2-4-2-4h-3v2.5c0 2.5-2 3.5-4 3.5H8s-3 0-3 3v3s0 3 3 3zm2-2a1 1 0 110-2 1 1 0 010 2z"/>
-          </svg>
-          <div class="skill-label">Python</div>
+        <div class="skills-label">
+          <h2>Technical <em>proficiencies</em>.</h2>
+          <p>The tools and methods I reach for across research projects and production work.</p>
         </div>
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/>
-            <circle cx="12" cy="4" r="1.5"/>
-            <circle cx="12" cy="20" r="1.5"/>
-            <circle cx="4" cy="12" r="1.5"/>
-            <circle cx="20" cy="12" r="1.5"/>
-            <circle cx="6.3" cy="6.3" r="1.3"/>
-            <circle cx="17.7" cy="17.7" r="1.3"/>
-            <circle cx="6.3" cy="17.7" r="1.3"/>
-            <circle cx="17.7" cy="6.3" r="1.3"/>
-            <path d="M12 5.5V9M12 15v3.5M5.5 12H9M15 12h3.5"/>
-          </svg>
-          <div class="skill-label">PyTorch + ML</div>
-        </div>
+        <div class="skills-list">
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="5" rx="8" ry="3"/>
-            <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
-            <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
-          </svg>
-          <div class="skill-label">SQL + Azure</div>
-        </div>
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">01</span>Modeling</div>
+            <div class="cat-skills">
+              <strong>Survival analysis</strong> · Mixed-integer programming · Discrete-event simulation · Queueing theory · Dynamic time warping · Probabilistic forecasting
+            </div>
+          </div>
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.5 19a4.5 4.5 0 10-1-8.9A7 7 0 005 14.5 4.5 4.5 0 006.5 19h11z"/>
-            <path d="M9 13l2 2 4-4"/>
-          </svg>
-          <div class="skill-label">MLOps / CI-CD</div>
-        </div>
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">02</span>Machine Learning</div>
+            <div class="cat-skills">
+              Random survival forests · XGBoost · <strong>Pinball-loss neural networks</strong> · SHAP explainability · Quantile regression · Hierarchical time series
+            </div>
+          </div>
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3v18h18"/>
-            <path d="M7 15l3-4 3 2 5-7"/>
-            <circle cx="7" cy="15" r="1.3" fill="currentColor"/>
-            <circle cx="10" cy="11" r="1.3" fill="currentColor"/>
-            <circle cx="13" cy="13" r="1.3" fill="currentColor"/>
-            <circle cx="18" cy="6" r="1.3" fill="currentColor"/>
-          </svg>
-          <div class="skill-label">Forecasting</div>
-        </div>
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">03</span>Engineering</div>
+            <div class="cat-skills">
+              <strong>Python</strong> · PyTorch · SQL · Azure · Git · CI / CD · MLOps pipelines · VBA
+            </div>
+          </div>
 
-        <div class="skill">
-          <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="16" rx="2"/>
-            <path d="M3 9h18M8 4v16"/>
-            <path d="M11 13h3M11 16h6"/>
-          </svg>
-          <div class="skill-label">MIP + Simulation</div>
-        </div>
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">04</span>Domain</div>
+            <div class="cat-skills">
+              <strong>Healthcare operations</strong> · Patient scheduling · Clinical workflows · Resource allocation · Appointment systems
+            </div>
+          </div>
 
+        </div>
       </div>
     </div>
   </section>
