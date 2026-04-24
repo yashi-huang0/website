@@ -29,7 +29,7 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 40px;
+    padding: 14px 40px;
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
@@ -64,7 +64,7 @@
     font-weight: 500;
     text-decoration: none;
   }
-  nav ul { display: flex; gap: 36px; list-style: none; font-size: 14px; }
+  nav ul { display: flex; gap: 24px; list-style: none; font-size: 13.5px; }
   nav a {
     text-decoration: none;
     color: var(--ink-2);
@@ -77,8 +77,8 @@
   nav .connect {
     background: var(--ink);
     color: var(--bg);
-    padding: 10px 20px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 11.5px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 500;
@@ -88,19 +88,26 @@
   nav .connect:hover { background: var(--accent); }
 
   /* HERO */
-  .hero { padding: 90px 0 80px; border-bottom: 1px solid var(--line); }
+  .hero {
+    padding: 32px 0;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+  }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 56px;
     align-items: center;
   }
   .hero h1 {
     font-weight: 600;
-    font-size: clamp(38px, 4.6vw, 58px);
+    font-size: clamp(34px, 4.0vw, 52px);
     line-height: 1.08;
     letter-spacing: -0.02em;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
   .hero h1 em {
     font-family: var(--serif);
@@ -110,24 +117,24 @@
     letter-spacing: -0.01em;
   }
   .hero p.lede {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.65;
     color: var(--ink-2);
-    max-width: 54ch;
-    margin-bottom: 40px;
+    max-width: 56ch;
+    margin-bottom: 28px;
   }
   .hero p.lede em {
     font-family: var(--serif);
     font-style: italic;
     color: var(--ink);
   }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 13px 22px;
-    font-size: 12px;
+    padding: 11px 18px;
+    font-size: 11.5px;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -143,11 +150,11 @@
 
   /* HERO ASIDE — Photo + Dossier */
   .hero-aside {
-    max-width: 380px;
+    max-width: 320px;
     margin-left: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
   }
   .portrait {
     margin: 0;
@@ -158,17 +165,17 @@
   .portrait img {
     display: block;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center top;
   }
   .portrait figcaption {
     display: flex;
     justify-content: space-between;
-    padding: 11px 14px 10px;
+    padding: 8px 12px;
     border-top: 1px solid var(--line);
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 9.5px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
@@ -179,44 +186,38 @@
   }
   .dossier-row {
     display: grid;
-    grid-template-columns: 78px 1fr;
-    gap: 14px;
-    padding: 13px 16px;
+    grid-template-columns: 72px 1fr;
+    gap: 10px;
+    padding: 8px 12px;
     border-top: 1px solid var(--line);
     align-items: baseline;
   }
   .dossier-row:first-child { border-top: none; }
   .dossier-row .label {
     font-family: var(--mono);
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
   }
   .dossier-row .value {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--ink);
     font-weight: 500;
-    line-height: 1.35;
-  }
-  .dossier-row .value em {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
+    line-height: 1.3;
   }
 
   .hero-status {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 6px 14px 6px 10px;
+    padding: 5px 12px 5px 9px;
     border: 1px solid var(--line-2);
     background: var(--surface);
     border-radius: 999px;
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--ink-2);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     font-family: var(--mono);
     letter-spacing: 0.04em;
   }
@@ -233,11 +234,19 @@
   }
 
   /* INTRO */
-  .intro { padding: 100px 0; border-bottom: 1px solid var(--line); }
-  .intro-grid { display: grid; grid-template-columns: 260px 1fr; gap: 80px; }
+  .intro {
+    padding: 32px 0;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .intro-grid { display: grid; grid-template-columns: 280px 1fr; gap: 72px; }
   .intro-label {
+    padding-left: 56px;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.3;
     letter-spacing: -0.005em;
   }
@@ -248,10 +257,10 @@
     font-weight: 400;
   }
   .intro-body p {
-    font-size: 16.5px;
+    font-size: 15.5px;
     line-height: 1.7;
     color: var(--ink-2);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     max-width: 68ch;
   }
   .intro-body p:last-child { margin-bottom: 0; }
@@ -262,26 +271,28 @@
     font-size: 1.03em;
   }
 
-  /* PROJECTS */
-  .projects { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  /* SECTION HEADER */
   .section-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 48px;
+    margin-bottom: 22px;
     gap: 40px;
     border-bottom: 1px solid var(--line);
-    padding-bottom: 20px;
+    padding-bottom: 12px;
   }
-  .section-head h2 { font-weight: 600; font-size: 28px; letter-spacing: -0.015em; }
+  .section-head h2 { font-weight: 600; font-size: 24px; letter-spacing: -0.015em; }
   .section-head .meta {
     font-family: var(--mono);
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0.12em;
     color: var(--muted);
     text-transform: uppercase;
   }
-  .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  /* PROJECTS */
+  .projects { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .project-card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -295,7 +306,7 @@
     box-shadow: 0 20px 40px -20px rgba(13, 138, 122, 0.18);
   }
   .project-viz {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 7;
     position: relative;
     overflow: hidden;
     background: #0F2A28;
@@ -303,39 +314,39 @@
   }
   .project-viz svg { width: 100%; height: 100%; display: block; }
   .project-body {
-    padding: 24px 22px 26px;
+    padding: 16px 16px 18px;
     display: flex;
     flex-direction: column;
     flex: 1;
   }
   .project-body .tag-case {
     font-family: var(--mono);
-    font-size: 10.5px;
+    font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .project-body h3 {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15.5px;
     line-height: 1.25;
     letter-spacing: -0.01em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .project-body .summary {
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 12.5px;
+    line-height: 1.5;
     color: var(--ink-2);
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     flex: 1;
   }
   .project-body .summary strong { color: var(--ink); font-weight: 600; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
   .tag {
     font-family: var(--mono);
-    font-size: 10.5px;
-    padding: 4px 9px;
+    font-size: 9.5px;
+    padding: 3px 7px;
     background: var(--bg-alt);
     border-radius: 4px;
     color: var(--ink-2);
@@ -348,14 +359,14 @@
     align-items: center;
     gap: 6px;
     font-family: var(--mono);
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-hover);
     background: var(--accent-soft);
-    padding: 4px 9px;
+    padding: 3px 7px;
     border-radius: 3px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-weight: 500;
     align-self: flex-start;
   }
@@ -368,12 +379,12 @@
 
   .project-links {
     display: flex;
-    gap: 18px;
-    padding-top: 14px;
-    margin-top: 16px;
+    gap: 14px;
+    padding-top: 10px;
+    margin-top: 10px;
     border-top: 1px solid var(--line);
     font-family: var(--mono);
-    font-size: 10.5px;
+    font-size: 10px;
     letter-spacing: 0.04em;
     flex-wrap: wrap;
   }
@@ -396,13 +407,17 @@
   /* SKILLS */
   .skills {
     background: var(--bg-alt);
-    padding: 90px 0;
+    padding: 32px 0;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-bottom: 1px solid var(--line);
   }
   .skills-layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 80px;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
   }
   .skills-label h2 {
     font-weight: 600;
@@ -425,11 +440,11 @@
   }
   .skills-list { display: flex; flex-direction: column; }
   .skill-cat {
-    padding: 24px 0;
+    padding: 22px 0;
     border-top: 1px solid var(--line-2);
     display: grid;
     grid-template-columns: 140px 1fr;
-    gap: 32px;
+    gap: 28px;
     align-items: baseline;
   }
   .skill-cat:first-child { border-top: none; padding-top: 0; }
@@ -439,7 +454,7 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
-    padding-top: 4px;
+    padding-top: 3px;
     display: flex;
     align-items: baseline;
     gap: 10px;
@@ -459,74 +474,74 @@
   }
 
   /* EXPERIENCE */
-  .experience { padding: 90px 0; border-bottom: 1px solid var(--line); }
-  .exp-grid { display: grid; grid-template-columns: 260px 1fr; gap: 80px; }
+  .experience { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  .exp-grid { display: grid; grid-template-columns: 220px 1fr; gap: 56px; }
   .exp-label h2 {
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: -0.015em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
-  .exp-label p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+  .exp-label p { font-size: 13px; color: var(--muted); line-height: 1.5; }
   .exp-list { display: flex; flex-direction: column; }
   .exp-entry {
-    padding: 26px 0;
+    padding: 14px 0;
     border-top: 1px solid var(--line);
     display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 32px;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
     align-items: start;
   }
   .exp-entry:first-child { border-top: none; padding-top: 0; }
   .exp-entry .when {
     font-family: var(--mono);
-    font-size: 11.5px;
+    font-size: 10.5px;
     letter-spacing: 0.06em;
     color: var(--muted);
-    padding-top: 3px;
+    padding-top: 2px;
   }
   .exp-entry .what h4 {
     font-weight: 600;
-    font-size: 16.5px;
-    margin-bottom: 3px;
+    font-size: 15px;
+    margin-bottom: 2px;
     letter-spacing: -0.005em;
   }
   .exp-entry .what .where {
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .exp-entry .what p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--ink-2);
-    line-height: 1.6;
+    line-height: 1.55;
     max-width: 64ch;
   }
   .exp-entry .what p strong { color: var(--ink); font-weight: 600; }
 
   /* TALKS */
-  .talks { padding: 80px 0; border-bottom: 1px solid var(--line); }
-  .talks-grid { display: grid; grid-template-columns: 260px 1fr; gap: 80px; }
-  .talks-label h2 { font-weight: 600; font-size: 28px; letter-spacing: -0.015em; }
+  .talks { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .talks-grid { display: grid; grid-template-columns: 220px 1fr; gap: 56px; }
+  .talks-label h2 { font-weight: 600; font-size: 24px; letter-spacing: -0.015em; }
   .talks-list { display: flex; flex-direction: column; }
   .talk {
-    padding: 20px 0;
+    padding: 12px 0;
     border-top: 1px solid var(--line);
     display: grid;
-    grid-template-columns: 130px 1fr 200px;
-    gap: 32px;
+    grid-template-columns: 100px 1fr 200px;
+    gap: 24px;
     align-items: baseline;
   }
   .talk:first-child { border-top: none; padding-top: 0; }
   .talk .date {
     font-family: var(--mono);
-    font-size: 11.5px;
+    font-size: 10.5px;
     letter-spacing: 0.06em;
     color: var(--muted);
   }
-  .talk .title { font-size: 15px; line-height: 1.4; }
+  .talk .title { font-size: 13.5px; line-height: 1.4; }
   .talk .venue {
-    font-size: 12.5px;
+    font-size: 11.5px;
     color: var(--muted);
     text-align: right;
     font-family: var(--mono);
@@ -534,13 +549,21 @@
   }
 
   /* CONTACT CTA */
-  .contact { padding: 100px 0 110px; }
+  .contact {
+    padding: 32px 0;
+    min-height: calc(100vh - 124px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .cta-card {
+    width: 100%;
     max-width: 720px;
     margin: 0 auto;
     border: 1px solid var(--line-2);
     background: var(--surface);
-    padding: 68px 48px 58px;
+    padding: 56px 48px 50px;
     position: relative;
     text-align: center;
   }
@@ -548,17 +571,17 @@
     content: "";
     position: absolute;
     top: 0; right: 0;
-    width: 44px; height: 44px;
+    width: 40px; height: 40px;
     background: var(--ink);
     clip-path: polygon(100% 0, 100% 100%, 0 0);
   }
   .cta-card h2 {
     font-weight: 600;
-    font-size: clamp(28px, 3.4vw, 40px);
+    font-size: clamp(26px, 3.2vw, 38px);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
-    max-width: 18ch;
+    margin-bottom: 18px;
+    max-width: 20ch;
     margin-left: auto;
     margin-right: auto;
   }
@@ -571,8 +594,8 @@
   .cta-card p {
     font-size: 15px;
     color: var(--ink-2);
-    margin-bottom: 32px;
-    max-width: 48ch;
+    margin-bottom: 28px;
+    max-width: 54ch;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
@@ -581,16 +604,16 @@
   /* FOOTER */
   footer {
     border-top: 1px solid var(--line);
-    padding: 26px 40px;
+    padding: 16px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: var(--mono);
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--muted);
     letter-spacing: 0.04em;
   }
-  footer .social { display: flex; gap: 26px; }
+  footer .social { display: flex; gap: 22px; }
   footer a {
     text-decoration: none;
     color: var(--muted);
@@ -608,21 +631,26 @@
 
   /* RESPONSIVE */
   @media (max-width: 960px) {
-    nav { padding: 18px 24px; }
-    nav ul { gap: 20px; }
+    nav { padding: 12px 24px; }
+    nav ul { gap: 18px; }
     .shell { padding: 0 24px; }
-    footer { padding: 22px 24px; flex-direction: column; gap: 14px; }
-    .hero-grid, .intro-grid, .exp-grid, .talks-grid { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 16px 24px; flex-direction: column; gap: 12px; }
+    .hero-grid, .intro-grid, .exp-grid, .talks-grid { grid-template-columns: 1fr; gap: 32px; }
     .project-grid { grid-template-columns: 1fr; }
     .hero-aside { max-width: 100%; margin-left: 0; }
-    .skills-layout { grid-template-columns: 1fr; gap: 32px; }
+    .skills-layout { grid-template-columns: 1fr; gap: 24px; }
     .skill-cat { grid-template-columns: 1fr; gap: 6px; }
     .talk { grid-template-columns: 1fr; gap: 6px; }
     .talk .venue { text-align: left; }
-    .exp-entry { grid-template-columns: 1fr; gap: 8px; }
-    .hero { padding: 60px 0; }
-    .intro, .projects, .experience, .talks { padding: 70px 0; }
-    .cta-card { padding: 56px 28px 44px; }
+    .exp-entry { grid-template-columns: 1fr; gap: 6px; }
+    .intro-label { padding-left: 0; }
+    .hero, .intro, .skills, .contact {
+      min-height: auto;
+      display: block;
+      padding: 40px 0;
+    }
+    .projects, .experience, .talks { padding: 40px 0; }
+    .cta-card { padding: 32px 24px 28px; }
   }
   @media (max-width: 560px) {
     nav ul { display: none; }
@@ -635,8 +663,11 @@
   <a href="#home" class="brand">Yashi Huang · Portfolio</a>
   <ul>
     <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="connect">Let's Connect</a>
@@ -655,15 +686,13 @@
         <h1 class="reveal d2">
           Operations management,<br/>
           built for the <em>real</em><br/>
-          world of healthcare.
+          world of decision-making
         </h1>
         <p class="lede reveal d3">
-          I'm a PhD candidate in Operations Management at the University of Rochester (M.S. in Operations Research, Columbia University). 
-          My research and applied work span predictive analytics, machine learning, and data-driven decision-making under uncertainty. 
-          I build models that are rigorous enough to defend and robust enough to ship. 
-          Most recently, I delivered a large cancer institute's
-          <em>first production machine-learning model on Databricks</em>,
-          a patient wait-time predictor now live in clinical workflows.
+          PhD candidate in Operations Management at the University of Rochester (M.S. Operations Research, Columbia).
+          My work spans predictive analytics, machine learning, and data-driven decision-making under uncertainty —
+          models rigorous enough to defend and robust enough to ship. Most recently, I delivered a large cancer institute's
+          <em>first production machine-learning model on Databricks</em>, a patient wait-time predictor now live in clinical workflows.
         </p>
         <div class="cta-row reveal d4">
           <a href="#projects" class="btn primary">View My Projects →</a>
@@ -713,23 +742,20 @@
       </div>
       <div class="intro-body">
         <p>
-         My PhD is in <em>Operations Management</em>, but I've spent it on the kinds of problems industry faces everywhere: 
-          time-series forecasting, calibrated probabilistic prediction, and stochastic optimization under uncertainty. 
+         My PhD is in <em>Operations Management</em>, but I've spent it on the kinds of problems industry faces everywhere:
+          time-series forecasting, calibrated probabilistic prediction, and stochastic optimization under uncertainty.
           These questions reached me through a healthcare partnership — the methods travel far beyond it.
         </p>
         <p>
-          Each of my three research projects goes all the way from theory to a shipped
-          tool. I've worked with over a million larget-scale data, built simulation
-          platforms from scratch, and turned predictive pipelines into
-          into human-in-the-loop systems — 
-          one deployed as a large cancer institute's <em>first production ML model on Databricks</em>, 
+          Each of my three research projects goes all the way from theory to a shipped tool. I've worked with over a million
+          large-scale records, built simulation platforms from scratch, and turned predictive pipelines into human-in-the-loop
+          systems — one deployed as a large cancer institute's <em>first production ML model on Databricks</em>,
           another as a <em>Python-plus-Excel interface</em> that operations staff actually open.
         </p>
         <p>
-         That instinct traces back to my pre-PhD work as a quantitative researcher in finance: 
-          backtesting trading strategies, calibrating Heston stochastic volatility models, 
-          and deriving option-implied probability distributions on the S&P 500. 
-          I'm seeking <em>full-time roles (quantitative researcher, data scientist, or consultant)</em>, 
+         That instinct traces back to my pre-PhD work as a quantitative researcher in finance: backtesting trading strategies,
+          calibrating Heston stochastic volatility models, and deriving option-implied probability distributions on the S&P 500.
+          I'm seeking <em>full-time roles (quantitative researcher, data scientist, or consultant)</em>,
           where I can keep pairing rigorous modeling with messy real-world decisions.
         </p>
       </div>
@@ -779,12 +805,12 @@
           <span class="status-badge">Paper Under Review</span>
           <h3>Dynamic Interval Prediction for Patient Wait Times</h3>
           <p class="summary">
-            Reframed patient wait times as a probabilistic-interval problem rather than a point estimate. 
+            Reframed patient wait times as a probabilistic-interval problem rather than a point estimate.
             Adaptive quantile selection on Random Survival Forests / a pinball-loss neural network, with
-            a real-time conditional updater and SHAP explainability. 
-            <strong>Deployed in production</strong> at a large cancer center — 
-            now serving live predictions to clinical assistants in five-minute refresh cycles.
-            <strong>79% accuracy with 38-min interval width.</strong>
+            real-time conditional updater and SHAP explainability.
+            <strong>Deployed in production</strong> at a large cancer center — now serving live predictions
+            to clinical assistants in five-minute refresh cycles.
+            <strong>79% accuracy, 38-min interval width.</strong>
           </p>
           <div class="tags">
             <span class="tag">Random Survival Forests</span>
@@ -840,12 +866,10 @@
           <p class="summary">
             A <strong>set function learning</strong> problem — the input is a set of scheduled sessions,
             the output is the intraday occupancy curve. Three complementary routes:
-            <strong>(1)</strong> top-down and bottom-up ML (DHR / XGBoost / ANN) to forecast daily totals,
-            then shape with Beta-distribution or Gaussian-process fits;
-            <strong>(2)</strong> direct aggregation of Monte Carlo session simulations;
-            <strong>(3)</strong> PCA on historical curves with ARIMAX on the principal components.
-            Shipped behind an Excel interface that lets planners edit sessions and see the
-            predicted load update live. 
+            <strong>(1)</strong> top-down / bottom-up ML to forecast daily totals, then shape with
+            Beta or Gaussian-process fits; <strong>(2)</strong> direct aggregation of Monte Carlo
+            session simulations; <strong>(3)</strong> PCA on historical curves with ARIMAX.
+            Shipped behind an Excel interface that lets planners edit sessions and see the load update live.
           </p>
           <div class="tags">
             <span class="tag accent">Set Function Learning</span>
@@ -895,10 +919,9 @@
           <div class="tag-case">Project 03 · Simulation + Optimization</div>
           <h3>Can We Predict the Day Ahead? A Study of Appointment-Based Healthcare Service Systems</h3>
           <p class="summary">
-            A <strong>simulation-optimization framework</strong> that predicts how a day
-            will unfold given an appointment schedule — and quantifies the
-            <strong>irreducible error</strong> of the underlying stochastic service system.
-            +5–28% accuracy over heuristic baselines.
+            A <strong>simulation-optimization framework</strong> that predicts how a day will unfold given
+            an appointment schedule — and quantifies the <strong>irreducible error</strong> of the underlying
+            stochastic service system. +5–28% accuracy over heuristic baselines.
           </p>
           <div class="tags">
             <span class="tag accent">Simulation-Optimization</span>
@@ -918,51 +941,6 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="skills" id="skills">
-    <div class="shell">
-      <div class="skills-layout">
-
-        <div class="skills-label">
-          <h2>Technical <em>proficiencies</em>.</h2>
-          <p>The tools and methods I reach for across research projects and production work.</p>
-        </div>
-
-        <div class="skills-list">
-
-          <div class="skill-cat">
-            <div class="cat-index"><span class="num">01</span>Modeling</div>
-            <div class="cat-skills">
-              <strong>Predictive models</strong> · Time-series models · Monte-Carlo simulation · Optimization · Queueing theory
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <div class="cat-index"><span class="num">02</span>Machine Learning</div>
-            <div class="cat-skills">
-              Random survival forests · XGBoost · Quantile regression · <strong>Neural networks</strong> · SHAP explainability
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <div class="cat-index"><span class="num">03</span>Engineering</div>
-            <div class="cat-skills">
-              <strong>Python</strong> · PyTorch · scikit-learn · SQL · Databricks · PySpark · Azure · Git · CI / CD · MLOps pipelines · VBA
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <div class="cat-index"><span class="num">04</span>Domain</div>
-            <div class="cat-skills">
-              <strong>Forecasting &amp; decision systems</strong> · Real-time prediction pipelines · Resource allocation under uncertainty · Queueing &amp; service operations
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- WORK EXPERIENCE -->
   <section class="experience" id="experience">
     <div class="exp-grid">
@@ -978,10 +956,11 @@
             <h4>Data Scientist Intern</h4>
             <div class="where">Dana-Farber Cancer Institute · Boston, MA</div>
             <p>
-              Designed and deployed the <strong>institute's first production ML model on Databricks</strong> — a patient wait-time predictor with 80% accuracy, 
-              reducing manual estimation time by ~5 min per patient. Engineered scalable pipelines (8,200+ lines of code, 3,500+ lines of tests) over 1M+ patient records, 
-              with automated retraining and drift monitoring. 
-              Collaborated with 15+ clinicians, operations managers, and engineers to translate business requirements into analytical models and ensure adoption.
+              Designed and deployed the <strong>institute's first production ML model on Databricks</strong> —
+              a patient wait-time predictor with 80% accuracy, reducing manual estimation time by ~5 min per patient.
+              Engineered scalable pipelines (8,200+ lines of code, 3,500+ lines of tests) over 1M+ patient records,
+              with automated retraining and drift monitoring. Collaborated with 15+ clinicians, operations managers,
+              and engineers to translate business requirements into analytical models and ensure adoption.
             </p>
           </div>
         </div>
@@ -992,11 +971,11 @@
             <h4>Quantitative Researcher</h4>
             <div class="where">Veta Investment Partners · Topeka, KS</div>
             <p>
-             Developed and backtested SPY trading algorithms using volatility and momentum signals in Python, 
-              achieving a <strong>70% cumulative improvement</strong> over benchmarks. 
-              Built a quantitative framework for option valuation and ETF ranking with scenario analysis and stress testing. 
-              Automated intraday portfolio attribution and risk reporting by extracting data from SQL, 
-              computing performance metrics, and delivering real-time email notifications.
+             Developed and backtested SPY trading algorithms using volatility and momentum signals in Python,
+              achieving a <strong>70% cumulative improvement</strong> over benchmarks. Built a quantitative framework for
+              option valuation and ETF ranking with scenario analysis and stress testing. Automated intraday portfolio
+              attribution and risk reporting by extracting data from SQL, computing performance metrics, and delivering
+              real-time email notifications.
             </p>
           </div>
         </div>
@@ -1007,9 +986,10 @@
             <h4>Quantitative Researcher</h4>
             <div class="where">Wisdom Capital Asset Management · New York, NY</div>
             <p>
-             Derived <strong>option-implied probability distributions of the S&P 500</strong> using non-parametric methods, 
-              calibrated with the Heston stochastic volatility model to improve predictive accuracy. 
-              Conducted <strong>risk analysis and scenario testing</strong> across short equity-hedged option portfolios, incorporating implied volatility, stress testing, and Value at Risk (VaR). 
+             Derived <strong>option-implied probability distributions of the S&P 500</strong> using non-parametric methods,
+              calibrated with the Heston stochastic volatility model to improve predictive accuracy. Conducted
+              <strong>risk analysis and scenario testing</strong> across short equity-hedged option portfolios,
+              incorporating implied volatility, stress testing, and Value at Risk (VaR).
               Analyzed 20+ assets across 30 years of return distributions.
             </p>
           </div>
@@ -1098,14 +1078,74 @@
     </div>
   </section>
 
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="shell">
+      <div class="skills-layout">
+
+        <div class="skills-label">
+          <h2>Technical <em>proficiencies</em>.</h2>
+          <p>The tools and methods I reach for across research projects and production work.</p>
+        </div>
+
+        <div class="skills-list">
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">01</span>Modeling</div>
+            <div class="cat-skills">
+              <strong>Predictive models</strong> · Time-series models · Monte-Carlo simulation · Optimization · Queueing theory ·
+              Scenario analysis &amp; stress testing
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">02</span>Machine Learning</div>
+            <div class="cat-skills">
+              Random survival forests · XGBoost · Quantile regression · <strong>Neural networks</strong> · SHAP explainability · Probabilistic calibration
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">03</span>Engineering</div>
+            <div class="cat-skills">
+              <strong>Python</strong> · PyTorch · scikit-learn · Git · Unit testing · MLOps pipelines · VBA
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">04</span>Data &amp; Cloud</div>
+            <div class="cat-skills">
+              <strong>Databricks</strong> · PySpark · SQL · Azure · MLflow · CI / CD · Large-scale data pipelines
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">05</span>Domain</div>
+            <div class="cat-skills">
+              <strong>Forecasting &amp; decision systems</strong> · Real-time prediction pipelines ·
+              Resource allocation under uncertainty · Queueing &amp; service operations · Trading strategies · Option pricing &amp; risk analytics · Backtesting
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="cat-index"><span class="num">06</span>Communication</div>
+            <div class="cat-skills">
+              <strong>English</strong> (fluent) · <strong>Mandarin</strong> (native) · Technical writing · Cross-functional stakeholder communication · Conference presentation
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="cta-card">
       <h2>Let's discuss how my research can <em>impact</em> your team.</h2>
       <p>
-        Actively interviewing for Quantitative Researcher Data Scientist, Applied Scientist, Operations Research
-        Scientist, and roles for Fall 2026. Happy to chat about
-        any of the work above — or a problem you're trying to solve.
+        Actively interviewing for Quantitative Researcher, Data Scientist, Applied Scientist, and Operations Research Scientist
+        roles for Fall 2026. Happy to chat about any of the work above — or a problem you're trying to solve.
       </p>
       <a href="mailto:yashih960@gmail.com" class="btn primary">Send a Message →</a>
     </div>
