@@ -658,11 +658,12 @@
           world of healthcare.
         </h1>
         <p class="lede reveal d3">
-          I'm a PhD candidate in Operations Management at the University of Rochester,
-          with a prior M.S. in Operations Research from Columbia. My work lives at the
-          seam of optimization, forecasting, and production ML — most recently,
-          I shipped Dana-Farber Cancer Institute's <em>first production machine-learning model</em>,
-          a patient wait-time predictor deployed into clinical workflows.
+          I'm a PhD candidate in Operations Management at the University of Rochester (M.S. in Operations Research, Columbia University). 
+          My research and applied work span predictive analytics, machine learning, and data-driven decision-making under uncertainty. 
+          I build models that are rigorous enough to defend and robust enough to ship. 
+          Most recently, I delivered a large cancer institute's
+          <em>first production machine-learning model on Databricks</em>,
+          a patient wait-time predictor now live in clinical workflows.
         </p>
         <div class="cta-row reveal d4">
           <a href="#projects" class="btn primary">View My Projects →</a>
@@ -685,11 +686,11 @@
         <div class="dossier">
           <div class="dossier-row">
             <span class="label">Now</span>
-            <span class="value">PhD Candidate · <em>Simon</em>, U. Rochester</span>
+            <span class="value">PhD Candidate · U. Rochester</span>
           </div>
           <div class="dossier-row">
             <span class="label">Recently</span>
-            <span class="value">Data Scientist · Dana-Farber</span>
+            <span class="value">Data Scientist Intern · Dana-Farber Cancer Institute</span>
           </div>
           <div class="dossier-row">
             <span class="label">Prior</span>
@@ -712,23 +713,24 @@
       </div>
       <div class="intro-body">
         <p>
-          My PhD is in <em>Operations Management</em>, but I've spent it on problems
-          industry cares about directly: how do we forecast demand in a cancer center,
-          give patients honest wait-time intervals, and schedule appointments under
-          no-shows, walk-ins, and stochastic service times?
+         My PhD is in <em>Operations Management</em>, but I've spent it on the kinds of problems industry faces everywhere: 
+          time-series forecasting, calibrated probabilistic prediction, and stochastic optimization under uncertainty. 
+          These questions reached me through a healthcare partnership — the methods travel far beyond it.
         </p>
         <p>
           Each of my three research projects goes all the way from theory to a shipped
-          tool. I've worked with over a million patient time logs, built simulation
-          platforms from scratch, and turned predict-then-optimize pipelines into
-          human-in-the-loop tools that operations staff actually click.
+          tool. I've worked with over a million larget-scale data, built simulation
+          platforms from scratch, and turned predictive pipelines into
+          into human-in-the-loop systems — 
+          one deployed as a large cancer institute's <em>first production ML model on Databricks</em>, 
+          another as a <em>Python-plus-Excel interface</em> that operations staff actually open.
         </p>
         <p>
-          The summer I spent at <em>Dana-Farber Cancer Institute</em> sharpened that
-          philosophy: the most rigorous model loses to the one that gets deployed.
-          I'm now seeking full-time industry roles where I can keep pairing careful
-          modeling with messy real-world decisions — in healthcare, logistics, or
-          anywhere operations meets machine learning.
+         That instinct traces back to my pre-PhD work as a quantitative researcher in finance: 
+          backtesting trading strategies, calibrating Heston stochastic volatility models, 
+          and deriving option-implied probability distributions on the S&P 500. 
+          I'm seeking <em>full-time roles (quantitative researcher, data scientist, or consultant)</em>, 
+          where I can keep pairing rigorous modeling with messy real-world decisions.
         </p>
       </div>
     </div>
@@ -773,24 +775,26 @@
           </svg>
         </div>
         <div class="project-body">
-          <div class="tag-case">Case Study 01 · Probabilistic ML</div>
+          <div class="tag-case">Project 01 · Probabilistic ML</div>
           <span class="status-badge">Paper Under Review</span>
           <h3>Dynamic Interval Prediction for Patient Wait Times</h3>
           <p class="summary">
-            Reframed wait-times as a probabilistic-interval problem. Adaptive quantile
-            selection on Random Survival Forests + a pinball-loss neural network, with
-            a real-time conditional updater and SHAP explainability.
-            <strong>Intervals 5 min narrower at matched coverage.</strong>
+            Reframed patient wait times as a probabilistic-interval problem rather than a point estimate. 
+            Adaptive quantile selection on Random Survival Forests / a pinball-loss neural network, with
+            a real-time conditional updater and SHAP explainability. 
+            <strong>Deployed in production</strong> at a large cancer center — 
+            now serving live predictions to clinical assistants in five-minute refresh cycles.
+            <strong>79% accuracy with 38-min interval width.</strong>
           </p>
           <div class="tags">
-            <span class="tag accent">Survival Analysis</span>
-            <span class="tag">Random Forests</span>
+            <span class="tag">Random Survival Forests</span>
+            <span class="tag">Neural Networks</span>
             <span class="tag">SHAP</span>
             <span class="tag">PyTorch</span>
           </div>
           <div class="project-links">
             <a href="#">Slides <span class="arrow">↗</span></a>
-            <a href="#">Paper <span class="arrow">↗</span></a>
+            <a href="#" class="pending">Paper <span class="arrow">↗</span></a>
             <a href="#" class="pending">GitHub <span class="arrow">↗</span></a>
           </div>
         </div>
@@ -831,23 +835,29 @@
           </svg>
         </div>
         <div class="project-body">
-          <div class="tag-case">Case Study 02 · Healthcare Operations</div>
-          <h3>Forecasting Intraday Occupancy at a Large Cancer Center</h3>
+          <div class="tag-case">Project 02 · Time-Series Forecasting</div>
+          <h3>Probabilistic Forecasting of Intraday Resource Utilization</h3>
           <p class="summary">
-            Two-stage top-down pipeline: forecast daily demand with DHR + FDA + XGBoost,
-            fit intraday occupancy with scaled Beta distributions, then feed into a
-            Mixed-Integer Program to reschedule sessions.
-            <strong>+14% forecast accuracy, +26% resource utilization.</strong>
+            A <strong>set function learning</strong> problem — the input is a set of scheduled sessions,
+            the output is the intraday occupancy curve. Three complementary routes:
+            <strong>(1)</strong> top-down and bottom-up ML (DHR / XGBoost / ANN) to forecast daily totals,
+            then shape with Beta-distribution or Gaussian-process fits;
+            <strong>(2)</strong> direct aggregation of Monte Carlo session simulations;
+            <strong>(3)</strong> PCA on historical curves with ARIMAX on the principal components.
+            Shipped behind an Excel interface that lets planners edit sessions and see the
+            predicted load update live. 
           </p>
           <div class="tags">
-            <span class="tag accent">MIP Optimization</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">PyTorch</span>
+            <span class="tag accent">Set Function Learning</span>
+            <span class="tag">Monte Carlo</span>
+            <span class="tag">XGBoost · ANN</span>
+            <span class="tag">Gaussian Processes</span>
+            <span class="tag">ARIMAX · PCA</span>
             <span class="tag">Python + VBA</span>
           </div>
           <div class="project-links">
-            <a href="#">Slides <span class="arrow">↗</span></a>
-            <a href="#">Paper <span class="arrow">↗</span></a>
+            <a href="#" class="pending">Slides <span class="arrow">↗</span></a>
+            <a href="#" class="pending">Paper <span class="arrow">↗</span></a>
             <a href="#" class="pending">GitHub <span class="arrow">↗</span></a>
           </div>
         </div>
@@ -882,23 +892,24 @@
           </svg>
         </div>
         <div class="project-body">
-          <div class="tag-case">Case Study 03 · Simulation + Optimization</div>
-          <h3>Predictive Scheduling in Appointment-Based Systems</h3>
+          <div class="tag-case">Project 03 · Simulation + Optimization</div>
+          <h3>Can We Predict the Day Ahead? A Study of Appointment-Based Healthcare Service Systems</h3>
           <p class="summary">
-            Python simulation of a queueing system with no-shows, walk-ins, and
-            stochastic service. Multi-objective scheduler aligned to simulated flows
-            via MAE + DTW, with full Gantt-feasibility constraints.
-            <strong>+5–28% accuracy over heuristic baselines.</strong>
+            A <strong>simulation-optimization framework</strong> that predicts how a day
+            will unfold given an appointment schedule — and quantifies the
+            <strong>irreducible error</strong> of the underlying stochastic service system.
+            +5–28% accuracy over heuristic baselines.
           </p>
           <div class="tags">
-            <span class="tag accent">Discrete-Event Sim</span>
-            <span class="tag">Dynamic Time Warping</span>
-            <span class="tag">Queueing</span>
+            <span class="tag accent">Simulation-Optimization</span>
+            <span class="tag">Discrete-Event Sim</span>
+            <span class="tag">Queueing Theory</span>
+            <span class="tag">Stochastic Modeling</span>
             <span class="tag">Python</span>
           </div>
           <div class="project-links">
-            <a href="#">Slides <span class="arrow">↗</span></a>
-            <a href="#">Paper <span class="arrow">↗</span></a>
+            <a href="#" class="pending">Slides <span class="arrow">↗</span></a>
+            <a href="#" class="pending">Paper <span class="arrow">↗</span></a>
             <a href="#" class="pending">GitHub <span class="arrow">↗</span></a>
           </div>
         </div>
@@ -922,28 +933,28 @@
           <div class="skill-cat">
             <div class="cat-index"><span class="num">01</span>Modeling</div>
             <div class="cat-skills">
-              <strong>Survival analysis</strong> · Mixed-integer programming · Discrete-event simulation · Queueing theory · Dynamic time warping · Probabilistic forecasting
+              <strong>Predictive models</strong> · Time-series models · Monte-Carlo simulation · Optimization · Queueing theory
             </div>
           </div>
 
           <div class="skill-cat">
             <div class="cat-index"><span class="num">02</span>Machine Learning</div>
             <div class="cat-skills">
-              Random survival forests · XGBoost · <strong>Pinball-loss neural networks</strong> · SHAP explainability · Quantile regression · Hierarchical time series
+              Random survival forests · XGBoost · Quantile regression · <strong>Neural networks</strong> · SHAP explainability
             </div>
           </div>
 
           <div class="skill-cat">
             <div class="cat-index"><span class="num">03</span>Engineering</div>
             <div class="cat-skills">
-              <strong>Python</strong> · PyTorch · SQL · Azure · Git · CI / CD · MLOps pipelines · VBA
+              <strong>Python</strong> · PyTorch · scikit-learn · SQL · Databricks · PySpark · Azure · Git · CI / CD · MLOps pipelines · VBA
             </div>
           </div>
 
           <div class="skill-cat">
             <div class="cat-index"><span class="num">04</span>Domain</div>
             <div class="cat-skills">
-              <strong>Healthcare operations</strong> · Patient scheduling · Clinical workflows · Resource allocation · Appointment systems
+              <strong>Forecasting &amp; decision systems</strong> · Real-time prediction pipelines · Resource allocation under uncertainty · Queueing &amp; service operations
             </div>
           </div>
 
@@ -967,11 +978,10 @@
             <h4>Data Scientist Intern</h4>
             <div class="where">Dana-Farber Cancer Institute · Boston, MA</div>
             <p>
-              Designed and deployed the <strong>institute's first production ML model</strong> —
-              a wait-time predictor with 75–80% accuracy, reducing estimation time by
-              ~5 min/patient. Built scalable pipelines over 1M+ patient time logs for
-              automated retraining and drift monitoring. Collaborated with 15+ clinicians,
-              PMs, and engineers to ensure adoption and long-term maintainability.
+              Designed and deployed the <strong>institute's first production ML model on Databricks</strong> — a patient wait-time predictor with 80% accuracy, 
+              reducing manual estimation time by ~5 min per patient. Engineered scalable pipelines (8,200+ lines of code, 3,500+ lines of tests) over 1M+ patient records, 
+              with automated retraining and drift monitoring. 
+              Collaborated with 15+ clinicians, operations managers, and engineers to translate business requirements into analytical models and ensure adoption.
             </p>
           </div>
         </div>
@@ -982,11 +992,25 @@
             <h4>Quantitative Researcher</h4>
             <div class="where">Veta Investment Partners · Topeka, KS</div>
             <p>
-              Built predictive SPY trading models using volatility and momentum features,
-              backtested in Python — achieved a <strong>70% cumulative return improvement.</strong>
-              Automated intraday portfolio analytics (SQL querying, risk attribution, reporting),
-              saving ~4 hours/day of manual work. Shipped real-time web dashboards for
-              portfolio KPIs.
+             Developed and backtested SPY trading algorithms using volatility and momentum signals in Python, 
+              achieving a <strong>70% cumulative improvement</strong> over benchmarks. 
+              Built a quantitative framework for option valuation and ETF ranking with scenario analysis and stress testing. 
+              Automated intraday portfolio attribution and risk reporting by extracting data from SQL, 
+              computing performance metrics, and delivering real-time email notifications.
+            </p>
+          </div>
+        </div>
+
+        <div class="exp-entry">
+          <div class="when">Feb 2020 — Sep 2020</div>
+          <div class="what">
+            <h4>Quantitative Researcher</h4>
+            <div class="where">Wisdom Capital Asset Management · New York, NY</div>
+            <p>
+             Derived <strong>option-implied probability distributions of the S&P 500</strong> using non-parametric methods, 
+              calibrated with the Heston stochastic volatility model to improve predictive accuracy. 
+              Conducted <strong>risk analysis and scenario testing</strong> across short equity-hedged option portfolios, incorporating implied volatility, stress testing, and Value at Risk (VaR). 
+              Analyzed 20+ assets across 30 years of return distributions.
             </p>
           </div>
         </div>
@@ -1079,8 +1103,8 @@
     <div class="cta-card">
       <h2>Let's discuss how my research can <em>impact</em> your team.</h2>
       <p>
-        Actively interviewing for Data Scientist, Applied Scientist, Operations Research
-        Scientist, and Quantitative Researcher roles for Fall 2026. Happy to chat about
+        Actively interviewing for Quantitative Researcher Data Scientist, Applied Scientist, Operations Research
+        Scientist, and roles for Fall 2026. Happy to chat about
         any of the work above — or a problem you're trying to solve.
       </p>
       <a href="mailto:yashih960@gmail.com" class="btn primary">Send a Message →</a>
