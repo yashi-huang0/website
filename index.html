@@ -515,9 +515,35 @@
     font-size: 13px;
     color: var(--ink-2);
     line-height: 1.55;
-    max-width: 64ch;
+    max-width: 92ch;
   }
   .exp-entry .what p strong { color: var(--ink); font-weight: 600; }
+  .exp-entry .what ul.bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 92ch;
+  }
+  .exp-entry .what ul.bullets li {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 7px;
+  }
+  .exp-entry .what ul.bullets li:last-child { margin-bottom: 0; }
+  .exp-entry .what ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .exp-entry .what ul.bullets li strong { color: var(--ink); font-weight: 600; }
 
   /* TALKS */
   .talks { padding: 40px 0; border-bottom: 1px solid var(--line); }
@@ -819,7 +845,7 @@
             <span class="tag">PyTorch</span>
           </div>
           <div class="project-links">
-            <a href="Project1_slides.pdf">Slides <span class="arrow">↗</span></a>
+            <a href="#">Slides <span class="arrow">↗</span></a>
             <a href="#" class="pending">Paper <span class="arrow">↗</span></a>
             <a href="#" class="pending">GitHub <span class="arrow">↗</span></a>
           </div>
@@ -955,13 +981,20 @@
           <div class="what">
             <h4>Data Scientist Intern</h4>
             <div class="where">Dana-Farber Cancer Institute · Boston, MA</div>
-            <p>
-              Designed and deployed the <strong>institute's first production ML model on Databricks</strong> —
-              a patient wait-time predictor with 80% accuracy, reducing manual estimation time by ~5 min per patient.
-              Engineered scalable pipelines (8,200+ lines of code, 3,500+ lines of tests) over 1M+ patient records,
-              with automated retraining and drift monitoring. Collaborated with 15+ clinicians, operations managers,
-              and engineers to translate business requirements into analytical models and ensure adoption.
-            </p>
+            <ul class="bullets">
+              <li>
+                Designed and deployed the <strong>institute's first production ML model on Databricks</strong> —
+                a patient wait-time predictor with 80% accuracy, reducing manual estimation time by ~5 min per patient.
+              </li>
+              <li>
+                Engineered scalable pipelines (8,200+ lines of code, 3,500+ lines of tests) over 1M+ patient records,
+                with automated retraining and drift monitoring.
+              </li>
+              <li>
+                Collaborated with 15+ clinicians, operations managers, and engineers to translate business requirements
+                into analytical models and ensure adoption.
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -970,13 +1003,19 @@
           <div class="what">
             <h4>Quantitative Researcher</h4>
             <div class="where">Veta Investment Partners · Topeka, KS</div>
-            <p>
-             Developed and backtested SPY trading algorithms using volatility and momentum signals in Python,
-              achieving a <strong>70% cumulative improvement</strong> over benchmarks. Built a quantitative framework for
-              option valuation and ETF ranking with scenario analysis and stress testing. Automated intraday portfolio
-              attribution and risk reporting by extracting data from SQL, computing performance metrics, and delivering
-              real-time email notifications.
-            </p>
+            <ul class="bullets">
+              <li>
+                Developed and backtested SPY trading algorithms using volatility and momentum signals in Python,
+                achieving a <strong>70% cumulative improvement</strong> over benchmarks.
+              </li>
+              <li>
+                Built a analytical framework for option valuation and ETF ranking with scenario analysis and stress testing.
+              </li>
+              <li>
+                Automated intraday portfolio attribution and risk reporting by extracting data from SQL,
+                computing performance metrics, and delivering real-time email notifications.
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -985,13 +1024,20 @@
           <div class="what">
             <h4>Quantitative Researcher</h4>
             <div class="where">Wisdom Capital Asset Management · New York, NY</div>
-            <p>
-             Derived <strong>option-implied probability distributions of the S&P 500</strong> using non-parametric methods,
-              calibrated with the Heston stochastic volatility model to improve predictive accuracy. Conducted
-              <strong>risk analysis and scenario testing</strong> across short equity-hedged option portfolios,
-              incorporating implied volatility, stress testing, and Value at Risk (VaR).
-              Analyzed 20+ assets across 30 years of return distributions.
-            </p>
+            <ul class="bullets">
+              <li>
+                Derived <strong>option-implied probability distributions of the S&amp;P 500</strong> using non-parametric methods,
+                calibrated with the Heston stochastic volatility model to improve predictive accuracy.
+              </li>
+              <li>
+                Conducted <strong>risk analysis and scenario testing</strong> across short equity-hedged option portfolios,
+                incorporating implied volatility, stress testing, and Value at Risk (VaR).
+              </li>
+              <li>
+               Performed statistical analysis on 20+ assets over 30 years to compare return distributions and developed a 
+                customized analytical interface using VBA and Excel macros.
+              </li>
+            </ul>
           </div>
         </div>
 
